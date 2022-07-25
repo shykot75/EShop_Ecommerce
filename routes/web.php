@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\EShopController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Backend\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,15 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
     // ADMIN PASSWORD --- EDIT, UPDATE
     Route::get('admin/password-change/{id}', [AdminProfileController::class, 'passwordChange'])->name('admin.change.password');
     Route::post('admin/password-update/{id}', [AdminProfileController::class, 'passwordUpdate'])->name('admin.update.password');
+
+    // BRAND MODULE --- SHOW, EDIT, UPDATE
+    Route::prefix('brand')->group(function(){
+        Route::get('/view', [BrandController::class, 'brandView'])->name('all.brand');
+        Route::post('/create', [BrandController::class, 'brandCreate'])->name('brand.create');
+    });
+
+
+
 });
 
 
@@ -69,9 +79,11 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     // USER DASHBOARD
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+
     // USER PROFILE MODULE -- EDIT, UPDATE
     Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
     Route::post('/user/profile/update', [UserController::class, 'userProfileUpdate'])->name('user.profile.update');
+
     // USER PASSWORD MODULE -- EDIT, UPDATE
     Route::get('/user/profile/change-password', [UserController::class, 'userChangePassword'])->name('user.change.password');
     Route::post('/user/profile/update-password', [UserController::class, 'userUpdatePassword'])->name('user.update.password');

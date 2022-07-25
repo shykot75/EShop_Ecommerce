@@ -20,8 +20,6 @@ class UserController extends Controller
         return $directory.$imageFullName;
     }
 
-
-
     public function index(){
         return view('user.dashboard.dashboard');
     }
@@ -80,18 +78,6 @@ class UserController extends Controller
 
     public function userUpdatePassword(Request $request){
 
-//        $validateData = $request->validate([
-//            'current_password' => 'required',
-//            'new_password' => 'required|confirmed|min:8',
-//            'confirm_password' => 'required',
-//        ],
-//         [
-//            'current_password.required' => 'Current Password Should not Empty',
-//            'new_password.required'     => 'You must enter a new Password',
-//            'new_password.min'          => 'New Password should at least 8 Characters Long',
-//            'confirm_password.required' => 'Confirm Password Should not Empty',
-//        ]);
-
         $validateData = $request->validate([
             'current_password' => 'required',
             'password' => 'required|confirmed|min:8',
@@ -103,10 +89,8 @@ class UserController extends Controller
             'password.min'          => 'New Password Should at least 8 Characters Long',
         ]);
 
-
             $id = Auth::user()->id;
             $userPassword = User::find($id)->password;
-
 
         if(Hash::check($request->current_password,$userPassword)){
             $changePassword = User::find($id);
