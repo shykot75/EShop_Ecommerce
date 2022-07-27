@@ -16,9 +16,14 @@
     <!-- Toster Style-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Select2 css-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     <!-- Style-->
     <link rel="stylesheet" href="{{asset('/')}}backend/css/style.css">
     <link rel="stylesheet" href="{{asset('/')}}backend/css/skin_color.css">
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{{asset('/')}}backend/css/custom.css">
 
 </head>
 
@@ -81,13 +86,48 @@
     @endif
 </script>
 
+<!-- Theme Admin App -->
+<script src="{{asset('/')}}backend/js/template.js"></script>
+<script src="{{asset('/')}}backend/js/pages/dashboard.js"></script>
+
 <!-- Data Table -->
 <script src="{{asset('/')}}assets/vendor_components/datatable/datatables.min.js"></script>
 <script src="{{asset('/')}}backend/js/pages/data-table.js"></script>
 
-<!-- Theme Admin App -->
-<script src="{{asset('/')}}backend/js/template.js"></script>
-<script src="{{asset('/')}}backend/js/pages/dashboard.js"></script>
+<!-----Select2 JS-->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<!-----Sweet Alert-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script type="text/javascript">
+
+    $(document).on('click', '#delete', function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Delete This Data?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Deleted!',
+                    'Your Data has been deleted.',
+                    'success'
+                )
+            }
+        })
+    });
+
+</script>
+
+
 
 
 </body>

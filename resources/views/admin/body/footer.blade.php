@@ -4,7 +4,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0)">FAQ</a>
             </li>
-            <li class=" nav-item">
+            <li class=" nav-item ">
                 Design & Develop By <a class="nav-link" href="#">Shykot Hasan Shourav</a>
             </li>
         </ul>

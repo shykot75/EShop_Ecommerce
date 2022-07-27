@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\EShopController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,37 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
     Route::prefix('brand')->group(function(){
         Route::get('/view', [BrandController::class, 'brandView'])->name('all.brand');
         Route::post('/create', [BrandController::class, 'brandCreate'])->name('brand.create');
+        Route::get('/edit/{id}', [BrandController::class, 'brandEdit'])->name('brand.edit');
+        Route::post('/update/{id}', [BrandController::class, 'brandUpdate'])->name('brand.update');
+        Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
+    });
+
+    // CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    Route::prefix('category')->group(function(){
+        Route::get('/view', [CategoryController::class, 'categoryView'])->name('all.category');
+        Route::post('/create', [CategoryController::class, 'categoryCreate'])->name('category.create');
+        Route::get('/edit/{id}', [CategoryController::class, 'categoryEdit'])->name('category.edit');
+        Route::post('/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('category.update');
+        Route::get('/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
+    });
+
+    // SUB CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    Route::prefix('subcategory')->group(function(){
+        Route::get('/view', [SubCategoryController::class, 'subcategoryView'])->name('all.subcategory');
+        Route::post('/create', [SubCategoryController::class, 'subcategoryCreate'])->name('subcategory.create');
+        Route::get('/edit/{id}', [SubCategoryController::class, 'subcategoryEdit'])->name('subcategory.edit');
+        Route::post('/update/{id}', [SubCategoryController::class, 'subcategoryUpdate'])->name('subcategory.update');
+        Route::get('/delete/{id}', [SubCategoryController::class, 'subcategoryDelete'])->name('subcategory.delete');
+    });
+
+    // SUB SUB CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    Route::prefix('sub-subcategory')->group(function(){
+        Route::get('/view', [SubCategoryController::class, 'subSubcategoryView'])->name('all.sub-subcategory');
+        Route::get('/fetch/{category_id}', [SubCategoryController::class, 'subCategoryFetch'])->name('subcategory.fetch');
+        Route::post('/create', [SubCategoryController::class, 'subSubcategoryCreate'])->name('sub-subcategory.create');
+        Route::get('/edit/{id}', [SubCategoryController::class, 'subSubcategoryEdit'])->name('sub-subcategory.edit');
+        Route::post('/update/{id}', [SubCategoryController::class, 'subSubcategoryUpdate'])->name('sub-subcategory.update');
+        Route::get('/delete/{id}', [SubCategoryController::class, 'subSubcategoryDelete'])->name('sub-subcategory.delete');
     });
 
 

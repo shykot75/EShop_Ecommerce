@@ -6,12 +6,12 @@
     <div class="content-header">
         <div class="d-flex align-items-center">
             <div class="mr-auto">
-                <h3 class="page-title">All Brand List </h3>
+                <h3 class="page-title">All Category List </h3>
                 <div class="d-inline-block align-items-center">
                     <nav>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"><i class="mdi mdi-home-outline"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page">All Brands</li>
+                            <li class="breadcrumb-item active" aria-current="page">All Categories</li>
                         </ol>
                     </nav>
                 </div>
@@ -27,27 +27,28 @@
                         <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Brand Name En</th>
-                            <th>Brand Name Ban</th>
-                            <th>Image</th>
-                            <th>Actions</th>
+                            <th >Category Icon</th>
+                            <th>Category English</th>
+                            <th>Category Bangla</th>
+                            <th width="25%">Actions</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($brands as $item)
+                        @foreach($categories as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->brand_name_en }}</td>
-                                <td>{{ $item->brand_name_ban }}</td>
-                                <td><img src="{{asset($item->brand_image)}}" alt="" height="40" width="70"></td>
+                                <td > <span class="{{ $item->category_icon }}"></span></td>
+                                <td>{{ $item->category_name_en }}</td>
+                                <td>{{ $item->category_name_ban }}</td>
+
                                 <td>
-                                    <a href="{{route('brand.edit', ['id' => $item->id])}}" class="btn btn-info" title="Edit This Brand"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{route('category.edit', ['id' => $item->id])}}" class="btn btn-info mr-2" title="Edit This Category"><i class="fa fa-pencil"></i></a>
 {{--                                    <a href="" onclick="deleteBrand({{$item->id}})" class="btn btn-danger">Delete</a>--}}
 {{--                                    <form action="{{route('brand.delete', ['id' => $item->id])}}" method="POST" id="deleteBrand{{$item->id}}">--}}
 {{--                                        @csrf--}}
 {{--                                    </form>--}}
-                                    <a href="{{route('brand.delete', ['id' => $item->id])}}" class="btn btn-danger" id="delete" title="Delete This Brand"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('category.delete', ['id' => $item->id])}}" class="btn btn-danger" id="delete" title="Delete This Category"><i class="fa fa-trash"></i></a>
                                 </td>
 
                             </tr>
@@ -62,40 +63,40 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">ADD Brand</h3>
+                    <h3 class="box-title">ADD Category</h3>
                 </div>
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form action="{{route('brand.create')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('category.create')}}" method="POST" >
                                 @csrf
                                 <div class="form-group">
-                                    <label for="brand_name_en">Brand Name English <span class="text-danger">*</span></label>
-                                    <input type="text" name="brand_name_en" class="form-control" id="brand_name_en">
-                                    @error('brand_name_en')
+                                    <label for="category_name_en">Category Name English <span class="text-danger">*</span></label>
+                                    <input type="text" name="category_name_en" class="form-control" id="category_name_en">
+                                    @error('category_name_en')
                                          <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="brand_name_ban">Brand Name Bangla <span class="text-danger">*</span></label>
-                                    <input type="text" name="brand_name_ban" class="form-control" id="brand_name_ban">
-                                    @error('brand_name_ban')
+                                    <label for="category_name_ban">Category Name Bangla <span class="text-danger">*</span></label>
+                                    <input type="text" name="category_name_ban" class="form-control" id="category_name_ban">
+                                    @error('category_name_ban')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="brand_image">Brand Image <span class="text-danger">*</span></label>
-                                    <input type="file" name="brand_image" class="form-control" id="brand_image" accept="image/*">
-                                    @error('brand_image')
+                                    <label for="category_icon">Category Icon <span class="text-danger">*</span></label>
+                                    <input type="text" name="category_icon" class="form-control" id="category_icon">
+                                    @error('category_icon')
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
 
 
                                 <div class="text-xs-right">
-                                    <button type="submit" class="btn btn-rounded btn-info">Create Brand</button>
+                                    <button type="submit" class="btn btn-rounded btn-info">Create Category</button>
                                 </div>
 
                             </form>
