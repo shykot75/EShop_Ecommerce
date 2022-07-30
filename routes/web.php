@@ -9,6 +9,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ use App\Http\Controllers\Backend\SubCategoryController;
 // --------------------------- HOME URL -----------------------------
 Route::get('/', [EShopController::class, 'index'])->name('home');
 
+Route::get('/check', function(){
+   return view('check');
+});
+
 
 // ---------------------------- ADMIN LOGIN ROUTE ----------------------------
 Route::middleware('admin:admin')->group(function(){
@@ -33,7 +38,7 @@ Route::middleware('admin:admin')->group(function(){
 });
 
 // ------------------------------ ADMIN MODULES -------------------------------
-Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'verified'])->group(function () {
+Route::middleware(['auth:sanctum,admin','auth:admin', config('jetstream.auth_session'), 'verified'])->group(function () {
     // ADMIN DASHBOARD
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth:admin');
 
@@ -46,7 +51,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
     Route::get('admin/password-change/{id}', [AdminProfileController::class, 'passwordChange'])->name('admin.change.password');
     Route::post('admin/password-update/{id}', [AdminProfileController::class, 'passwordUpdate'])->name('admin.update.password');
 
-    // BRAND MODULE --- SHOW, EDIT, UPDATE
+    // BRAND MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
     Route::prefix('brand')->group(function(){
         Route::get('/view', [BrandController::class, 'brandView'])->name('all.brand');
         Route::post('/create', [BrandController::class, 'brandCreate'])->name('brand.create');
@@ -55,7 +60,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
     });
 
-    // CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    // CATEGORY MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
     Route::prefix('category')->group(function(){
         Route::get('/view', [CategoryController::class, 'categoryView'])->name('all.category');
         Route::post('/create', [CategoryController::class, 'categoryCreate'])->name('category.create');
@@ -64,7 +69,7 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         Route::get('/delete/{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
     });
 
-    // SUB CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    // SUB CATEGORY MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
     Route::prefix('subcategory')->group(function(){
         Route::get('/view', [SubCategoryController::class, 'subcategoryView'])->name('all.subcategory');
         Route::post('/create', [SubCategoryController::class, 'subcategoryCreate'])->name('subcategory.create');
@@ -73,15 +78,40 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session'), 'veri
         Route::get('/delete/{id}', [SubCategoryController::class, 'subcategoryDelete'])->name('subcategory.delete');
     });
 
-    // SUB SUB CATEGORY MODULE --- SHOW, EDIT, UPDATE
+    // SUB SUB CATEGORY MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
     Route::prefix('sub-subcategory')->group(function(){
         Route::get('/view', [SubCategoryController::class, 'subSubcategoryView'])->name('all.sub-subcategory');
         Route::get('/fetch/{category_id}', [SubCategoryController::class, 'subCategoryFetch'])->name('subcategory.fetch');
+        Route::get('/sub/fetch/{subcategory_id}', [SubCategoryController::class, 'subSubCategoryFetch'])->name('sub-subcategory.fetch');
         Route::post('/create', [SubCategoryController::class, 'subSubcategoryCreate'])->name('sub-subcategory.create');
         Route::get('/edit/{id}', [SubCategoryController::class, 'subSubcategoryEdit'])->name('sub-subcategory.edit');
         Route::post('/update/{id}', [SubCategoryController::class, 'subSubcategoryUpdate'])->name('sub-subcategory.update');
         Route::get('/delete/{id}', [SubCategoryController::class, 'subSubcategoryDelete'])->name('sub-subcategory.delete');
     });
+
+    // PRODUCT MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
+    Route::prefix('product')->group(function(){
+        Route::get('/add', [ProductController::class, 'addProduct'])->name('add.product');
+        Route::post('/create', [ProductController::class, 'createProduct'])->name('create.product');
+        Route::get('/manage', [ProductController::class, 'manageProduct'])->name('manage.product');
+        Route::get('/edit/{id}', [ProductController::class, 'editProduct'])->name('edit.product');
+        Route::post('/update/{id}', [ProductController::class, 'updateProduct'])->name('update.product');
+        Route::post('/update/multi/images', [ProductController::class, 'updateProductMultiImage'])->name('update.multiple-product-image');
+        Route::post('/update/thumb/image/{id}', [ProductController::class, 'updateProductThumbImage'])->name('update.thumbnail-product-image');
+        Route::get('/delete/multi/image/{id}', [ProductController::class, 'deleteProductMultiImage'])->name('delete.multiple-product-image');
+        Route::get('/update/product-status/{id}', [ProductController::class, 'updateProductStatus'])->name('statusUpdate.product');
+        Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('delete.product');
+        Route::get('/details/{id}', [ProductController::class, 'detailsProduct'])->name('details.product');
+
+
+    });
+
+
+
+
+
+
+
 
 
 

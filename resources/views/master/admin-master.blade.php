@@ -97,9 +97,16 @@
 <!-----Select2 JS-->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-----Input Tags JS-->
+<script src="{{asset('/')}}assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+
+<!-----CK Editor JS-->
+<script src="{{asset('/')}}assets/vendor_components/ckeditor/ckeditor.js"></script>
+<script src="{{asset('/')}}assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="{{asset('/')}}backend/js/pages/editor.js"></script>
+
 <!-----Sweet Alert-->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script type="text/javascript">
 
     $(document).on('click', '#delete', function(e){

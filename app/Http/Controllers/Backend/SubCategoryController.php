@@ -88,16 +88,22 @@ class SubCategoryController extends Controller
 //------------------------------------- SUB SUB CATEGORY ---------------------------------------
 //----------------------------------------------------------------------------------------------
 
-public function subSubcategoryView(){
-    $categories = Category::orderBy('category_name_en', 'ASC')->get();
-    $subSubCategories = SubSubCategory::latest()->get();
-    return view('admin-control.sub_subcategory.sub_subcategory-view', compact('categories','subSubCategories'));
-}
+    public function subSubcategoryView(){
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $subSubCategories = SubSubCategory::latest()->get();
+        return view('admin-control.sub_subcategory.sub_subcategory-view', compact('categories','subSubCategories'));
+    }
 
-public function subCategoryFetch($category_id){
-    $subCategoryFetch = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name_en', 'ASC')->get();
-    return json_encode($subCategoryFetch);
-}
+    public function subCategoryFetch($category_id){
+        $subCategoryFetch = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name_en', 'ASC')->get();
+        return json_encode($subCategoryFetch);
+    }
+
+    public function subSubCategoryFetch($subcategory_id){
+        $subSubCategoryFetch = SubSubCategory::where('subcategory_id',$subcategory_id)->orderBy('subsubcategory_name_en', 'ASC')->get();
+        return json_encode($subSubCategoryFetch);
+    }
+
 
     public function subSubcategoryCreate(Request $request){
         $request->validate([

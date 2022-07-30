@@ -31,7 +31,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                            <form  action="{{ route('admin-profile.update', ['id' => $editProfile->id]) }}" method="POST" novalidate enctype="multipart/form-data" >
+                            <form novalidate action="{{ route('admin-profile.update', ['id' => $editProfile->id]) }}" method="POST" novalidate enctype="multipart/form-data" >
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">

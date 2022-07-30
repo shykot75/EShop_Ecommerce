@@ -48,7 +48,8 @@
                                                 @enderror
                                             </div>
                                         </div>
-
+                                    </div>
+                                     <div class="form-group">
                                         <label for="subcategory_name_en">Sub Category English <span class="text-danger">*</span></label>
                                         <input type="text" name="subcategory_name_en" class="form-control" id="subcategory_name_en" value="{{ $subcategory->subcategory_name_en }}">
                                         @error('subcategory_name_en')
