@@ -291,7 +291,7 @@
                                                     <div class="form-group">
                                                         <h5>Short Description English <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <textarea name="short_desc_en" id="short_desc_en" class="form-control"  required data-validation-required-message="Short Description English Required" ></textarea>
+                                                            <textarea name="short_desc_en" id="short_desc_en" class="form-control" rows="8" cols="80  required data-validation-required-message="Short Description English Required" ></textarea>
                                                         </div>
                                                         @error('short_desc_en')
                                                         <span class="text-danger">{{ $message }}</span>
@@ -303,7 +303,7 @@
                                                     <div class="form-group">
                                                         <h5>Short Description Bangla <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <textarea name="short_desc_ban" id="short_desc_ban" class="form-control" required data-validation-required-message="Short Description Bangla Required"  ></textarea>
+                                                            <textarea name="short_desc_ban" id="short_desc_ban" class="form-control" rows="8" cols="80 required data-validation-required-message="Short Description Bangla Required"  ></textarea>
                                                         </div>
                                                         @error('short_desc_ban')
                                                         <span class="text-danger">{{ $message }}</span>

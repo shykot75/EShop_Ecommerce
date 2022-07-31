@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use  App\Http\Controllers\Backend\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +26,6 @@ use App\Http\Controllers\Backend\ProductController;
 
 // --------------------------- HOME URL -----------------------------
 Route::get('/', [EShopController::class, 'index'])->name('home');
-
-Route::get('/check', function(){
-   return view('check');
-});
-
 
 // ---------------------------- ADMIN LOGIN ROUTE ----------------------------
 Route::middleware('admin:admin')->group(function(){
@@ -102,7 +98,17 @@ Route::middleware(['auth:sanctum,admin','auth:admin', config('jetstream.auth_ses
         Route::get('/update/product-status/{id}', [ProductController::class, 'updateProductStatus'])->name('statusUpdate.product');
         Route::get('/delete/{id}', [ProductController::class, 'deleteProduct'])->name('delete.product');
         Route::get('/details/{id}', [ProductController::class, 'detailsProduct'])->name('details.product');
+    });
 
+    // BRAND MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
+    Route::prefix('slider')->group(function(){
+        Route::get('/view', [SliderController::class, 'sliderView'])->name('manage.slider');
+        Route::post('/create', [SliderController::class, 'sliderCreate'])->name('slider.create');
+        Route::get('/edit/{id}', [SliderController::class, 'sliderEdit'])->name('slider.edit');
+        Route::post('/update/{id}', [SliderController::class, 'sliderUpdate'])->name('slider.update');
+        Route::get('/details/{id}', [SliderController::class, 'sliderDetails'])->name('slider.details');
+        Route::get('/update/slider-status/{id}', [SliderController::class, 'updateSliderStatus'])->name('statusUpdate.slider');
+        Route::get('/delete/{id}', [SliderController::class, 'sliderDelete'])->name('slider.delete');
 
     });
 

@@ -88,9 +88,7 @@
 
                                                         <div class="controls">
                                                             <input type="text" name="product_name_en" id="product_name_en" class="form-control" required data-validation-required-message="Product Name English Required" value="{{$product->product_name_en}}" > </div>
-                                                        @error('product_name_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -99,9 +97,7 @@
                                                         <label for="product_name_ban">Product Name Ban <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_name_ban" id="product_name_ban" class="form-control" required data-validation-required-message="Product Name Bangla Required" value="{{$product->product_name_ban}}"   > </div>
-                                                        @error('product_name_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -113,9 +109,7 @@
                                                         <label for="product_code">Product Code <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_code" id="product_code" class="form-control" required data-validation-required-message="Product Code Required"  value="{{$product->product_code}}"  > </div>
-                                                        @error('product_code')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -124,9 +118,7 @@
                                                         <label for="product_quantity">Product Quantity<span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_quantity" id="product_quantity" class="form-control" required data-validation-required-message="Product Quantity Required"  value="{{$product->product_quantity}}"  > </div>
-                                                        @error('product_quantity')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -135,9 +127,7 @@
                                                         <label for="product_tags_en">Product Tags En <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_tags_en" id="product_tags_en" data-role="tagsinput" class="form-control" required data-validation-required-message="Product Tags English Required"  value="{{$product->product_tags_en}}"  > </div>
-                                                        @error('product_tags_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -149,9 +139,7 @@
                                                         <label for="product_tags_ban">Product Tags Ban <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_tags_ban" id="product_tags_ban" data-role="tagsinput" class="form-control" required data-validation-required-message="Product Tags Bangla Required"  value="{{$product->product_tags_ban}}"  > </div>
-                                                        @error('product_tags_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -160,9 +148,7 @@
                                                         <label for="product_size_en">Product Size En </label>
                                                         <div class="controls">
                                                             <input type="text" name="product_size_en" id="product_size_en" data-role="tagsinput" class="form-control"  value="{{$product->product_size_en}}"  > </div>
-                                                        @error('product_size_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -171,9 +157,7 @@
                                                         <label for="product_size_ban">Product Size Ban </label>
                                                         <div class="controls">
                                                             <input type="text" name="product_size_ban" id="product_size_ban" data-role="tagsinput" class="form-control"  value="{{$product->product_size_ban}}"  > </div>
-                                                        @error('product_size_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -185,9 +169,7 @@
                                                         <label for="product_color_en">Product Color En <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_color_en" id="product_color_en" data-role="tagsinput" class="form-control"  required data-validation-required-message="Product Color English Required"   value="{{$product->product_color_en}}"  > </div>
-                                                        @error('product_color_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -196,9 +178,7 @@
                                                         <label for="product_color_ban">Product Color Ban <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="product_color_ban" id="product_color_ban" data-role="tagsinput" class="form-control" required data-validation-required-message="Product Color Bangla Required" value="{{$product->product_color_ban}}"  > </div>
-                                                        @error('product_color_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -207,9 +187,7 @@
                                                         <label for="selling_price">Product Selling Price <span class="text-danger">*</span></label>
                                                         <div class="controls">
                                                             <input type="text" name="selling_price" id="selling_price" class="form-control"  required data-validation-required-message="Product Selling Price Required"  value="{{$product->selling_price}}"  > </div>
-                                                        @error('selling_price')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -230,7 +208,7 @@
                                                 <div class="form-group">
                                                     <label for="product_thumbnail">Product Thumbnail<span class="text-danger">*</span></label>
                                                     <div class="controls">
-                                                        <img src="{{ asset($product->product_thumbnail) }} " alt="" id="thumb" height="200" width="200">
+                                                        <img src="{{ asset($product->product_thumbnail) }} " alt="" id="thumb" height="150" width="220">
                                                     </div>
                                                 </div>
                                             </div> <!-- end col-md-4 -->
@@ -242,7 +220,7 @@
                                                         <div class="row">
                                                             @foreach($multiImages as $img)
                                                                 <div class="col-md-3">
-                                                                <img src="{{ asset($img->photo_name) }} " alt="" id="thumb" height="200" width="200">
+                                                                <img src="{{ asset($img->photo_name) }} " alt="" id="thumb" height="150" width="220">
                                                                 </div>
                                                             @endforeach
                                                         </div>
@@ -261,9 +239,7 @@
                                                         <div class="controls">
                                                             <textarea name="short_desc_en" id="short_desc_en" class="form-control" rows="8" cols="80  required data-validation-required-message="Short Description English Required" >{{ $product->short_desc_en }}</textarea>
                                                         </div>
-                                                        @error('short_desc_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -273,9 +249,7 @@
                                                         <div class="controls">
                                                             <textarea name="short_desc_ban" id="short_desc_ban" class="form-control" rows="8" cols="80 required data-validation-required-message="Short Description Bangla Required"  >{{ $product->short_desc_ban }}</textarea>
                                                         </div>
-                                                        @error('short_desc_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -288,9 +262,7 @@
                                                         <div class="controls">
                                                             <textarea name="long_desc_en"  rows="10" cols="80" class="form-control">{!! $product->long_desc_en !!}</textarea>
                                                         </div>
-                                                        @error('long_desc_en')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 
@@ -300,9 +272,7 @@
                                                         <div class="controls">
                                                             <textarea name="long_desc_ban"  rows="10" cols="80" class="form-control">{!! $product->long_desc_ban !!}</textarea>
                                                         </div>
-                                                        @error('long_desc_ban')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                        @enderror
+
                                                     </div>
                                                 </div> <!-- end col-md-4 -->
 

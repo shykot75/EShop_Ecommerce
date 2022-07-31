@@ -61,11 +61,11 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{route('details.product', ['id' => $item->id])}}" class="btn btn-primary mr-2" title="See Product Details"><i class="fa fa-eye"></i></a>
-                                        <a href="{{route('statusUpdate.product', ['id' => $item->id])}}" class="btn {{ $item->status == 1 ? 'btn-success' : 'btn-warning' }} mr-2" title="{{ $item->status == 1 ? 'Inactive It.' : 'Active It.' }}">
+                                        <a href="{{route('details.product', ['id' => $item->id])}}" class="btn btn-primary" title="See Product Details"><i class="fa fa-eye"></i></a>
+                                        <a href="{{route('statusUpdate.product', ['id' => $item->id])}}" class="btn {{ $item->status == 1 ? 'btn-success' : 'btn-warning' }} " title="{{ $item->status == 1 ? 'Inactive It.' : 'Active It.' }}">
                                             <i class=" {{ $item->status == 1 ? 'fa fa-arrow-up' : 'fa fa-arrow-down' }}"></i>
                                         </a>
-                                        <a href="{{route('edit.product', ['id' => $item->id])}}" class="btn btn-info mr-2" title="Edit This Product"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{route('edit.product', ['id' => $item->id])}}" class="btn btn-info " title="Edit This Product"><i class="fa fa-pencil"></i></a>
                                         <a href="{{route('delete.product', ['id' => $item->id])}}" class="btn btn-danger" id="delete" title="Delete This Product"><i class="fa fa-trash"></i></a>
                                     </td>
 
