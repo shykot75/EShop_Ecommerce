@@ -32,8 +32,9 @@
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Discount</th>
+{{--                                <th>Discount Price</th>--}}
                                 <th>Status</th>
-                                <th>Actions</th>
+                                <th width="22%">Actions</th>
 
                             </tr>
                             </thead>
@@ -43,7 +44,10 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td ><img src="{{asset($item->product_thumbnail)}}" alt="" width="100px" height="60px" ></td>
                                     <td>{{ $item->product_name_en }}</td>
-                                    <td>{{ $item->selling_price }} ৳</td>
+                                    <td>{{ $item->discount_price == NULL ? number_format($item->selling_price) :  number_format($item->discount_price) }} ৳
+                                        <br>
+                                        <del>{{number_format($item->selling_price)}}৳</del>
+                                    </td>
                                     <td>{{ $item->product_quantity }} Pis</td>
                                     <td>
                                         @if($item->discount_price == NULL)
@@ -56,17 +60,18 @@
                                             <span class="badge badge-pill badge-primary">{{round($discount)}}%</span>
                                         @endif
                                     </td>
+{{--                                    <td>{{ number_format($item->discount_price) }} ৳</td>--}}
                                     <td><span class="badge badge-pill {{ $item->status == 1 ? 'badge-success' : 'badge-danger' }}">
                                           <strong>{{ $item->status == 1 ? 'Active' : 'Inactive' }}</strong></span>
                                     </td>
 
                                     <td>
-                                        <a href="{{route('details.product', ['id' => $item->id])}}" class="btn btn-primary" title="See Product Details"><i class="fa fa-eye"></i></a>
-                                        <a href="{{route('statusUpdate.product', ['id' => $item->id])}}" class="btn {{ $item->status == 1 ? 'btn-success' : 'btn-warning' }} " title="{{ $item->status == 1 ? 'Inactive It.' : 'Active It.' }}">
+                                        <a href="{{route('details.product', ['id' => $item->id])}}" class="btn btn-primary btn-sm m-1" title="See Product Details"><i class="fa fa-eye"></i></a>
+                                        <a href="{{route('statusUpdate.product', ['id' => $item->id])}}" class="btn btn-sm m-1 {{ $item->status == 1 ? 'btn-success' : 'btn-warning' }} " title="{{ $item->status == 1 ? 'Inactive It.' : 'Active It.' }}">
                                             <i class=" {{ $item->status == 1 ? 'fa fa-arrow-up' : 'fa fa-arrow-down' }}"></i>
                                         </a>
-                                        <a href="{{route('edit.product', ['id' => $item->id])}}" class="btn btn-info " title="Edit This Product"><i class="fa fa-pencil"></i></a>
-                                        <a href="{{route('delete.product', ['id' => $item->id])}}" class="btn btn-danger" id="delete" title="Delete This Product"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('edit.product', ['id' => $item->id])}}" class="btn btn-info btn-sm m-1" title="Edit This Product"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{route('delete.product', ['id' => $item->id])}}" class="btn btn-danger btn-sm m-1" id="delete" title="Delete This Product"><i class="fa fa-trash"></i></a>
                                     </td>
 
                                 </tr>

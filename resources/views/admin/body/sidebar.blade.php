@@ -72,7 +72,7 @@
 
             <li class="treeview {{ $prefix == 'slider' ? 'active' : '' }} ">
                 <a href="#">
-                    <i data-feather="shopping-cart"></i>
+                    <i data-feather="sliders"></i>
                     <span>Sliders</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>

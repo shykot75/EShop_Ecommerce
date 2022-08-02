@@ -10,7 +10,8 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
-use  App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,30 @@ use  App\Http\Controllers\Backend\SliderController;
 |
 */
 
+// ************************************* WEBSITE MODULE STARTS ******************************************
 
-// --------------------------- HOME URL -----------------------------
+// ------- HOME URL ---------
 Route::get('/', [EShopController::class, 'index'])->name('home');
+
+// ------ LANGUAGE MODULE ------
+Route::get('/language/bangla', [LanguageController::class, 'bangla'])->name('bangla.language');
+Route::get('/language/english', [LanguageController::class, 'english'])->name('english.language');
+
+
+
+
+
+// ************************************* WEBSITE MODULE ENDS ******************************************
+
+
+
+
+
+
+
+
+
+
 
 // ---------------------------- ADMIN LOGIN ROUTE ----------------------------
 Route::middleware('admin:admin')->group(function(){
@@ -100,7 +122,7 @@ Route::middleware(['auth:sanctum,admin','auth:admin', config('jetstream.auth_ses
         Route::get('/details/{id}', [ProductController::class, 'detailsProduct'])->name('details.product');
     });
 
-    // BRAND MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
+    // SLIDER MODULE --- CREATE, MANAGE, EDIT, UPDATE, DELETE
     Route::prefix('slider')->group(function(){
         Route::get('/view', [SliderController::class, 'sliderView'])->name('manage.slider');
         Route::post('/create', [SliderController::class, 'sliderCreate'])->name('slider.create');

@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="{{asset('/')}}frontend/assets/css/rateit.css">
     <link rel="stylesheet" href="{{asset('/')}}frontend/assets/css/bootstrap-select.min.css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{asset('/')}}frontend/assets/css/custom.css">
+
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{asset('/')}}frontend/assets/css/font-awesome.css">
 
