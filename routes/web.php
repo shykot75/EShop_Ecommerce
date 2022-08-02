@@ -33,8 +33,8 @@ Route::get('/', [EShopController::class, 'index'])->name('home');
 Route::get('/language/bangla', [LanguageController::class, 'bangla'])->name('bangla.language');
 Route::get('/language/english', [LanguageController::class, 'english'])->name('english.language');
 
-
-
+// ------ PRODUCT DETAILS MODULE ------
+Route::get('product/details/{id}/{slug}', [EShopController::class, 'productDetails'])->name('product.details');
 
 
 // ************************************* WEBSITE MODULE ENDS ******************************************
