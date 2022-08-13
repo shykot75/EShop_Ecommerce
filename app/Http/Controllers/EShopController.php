@@ -15,7 +15,7 @@ class EShopController extends Controller
     public function index(){
         $categories = Category::orderBy('category_name_en', 'ASC')->get();
         $sliders = Slider::where('status',1)->orderBy('id','DESC')->limit(3)->get();
-        $products = Product::where('status',1)->orderBy('id', 'DESC')->limit(10)->get();
+        $products = Product::where('status',1)->orderBy('id', 'DESC')->limit(20)->get();
         $features = Product::where('featured',1)->where('status',1)->orderBy('id','DESC')->limit(6)->get();
         $hots = Product::where('hot_deals',1)->where('discount_price', '!=', NULL )->where('status',1)->orderBy('id','DESC')->limit(6)->get();
         $specials = Product::where('special_offer',1)->where('status',1)->orderBy('id','DESC')->limit(4)->get();
