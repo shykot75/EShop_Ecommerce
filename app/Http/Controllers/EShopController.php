@@ -43,6 +43,14 @@ class EShopController extends Controller
         return view('website.product.product-details', compact('product', 'multiImgs'));
     }
 
+    public function tagWiseProduct($tag){
+        $products = Product::where('status',1)->where('product_tags_en',$tag)->orwhere('product_tags_ban',$tag)->orderBy('id','DESC')->paginate(2);
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        return view('website.tag.tag-view', compact('products', 'categories'));
+    }
+
+
+
 
 
 

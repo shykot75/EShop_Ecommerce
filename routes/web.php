@@ -36,6 +36,12 @@ Route::get('/language/english', [LanguageController::class, 'english'])->name('e
 // ------ PRODUCT DETAILS MODULE ------
 Route::get('product/details/{id}/{slug}', [EShopController::class, 'productDetails'])->name('product.details');
 
+// ------ PRODUCT TAGS DETAILS MODULE ------
+Route::get('product/tag/{tag}', [EShopController::class, 'tagWiseProduct'])->name('product.tag');
+
+
+
+
 
 // ************************************* WEBSITE MODULE ENDS ******************************************
 
